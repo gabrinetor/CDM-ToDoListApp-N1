@@ -4,20 +4,20 @@ public class Tarefa {
 
     private int id;
     private String tarefa;
-    private String date;
+    private String dataMarcada;
 
     public Tarefa() {
     }
 
-    public Tarefa(String tarefa, String date) {
+    public Tarefa(String tarefa, String dataMarcada) {
         this.tarefa = tarefa;
-        this.date = date;
+        this.dataMarcada = dataMarcada;
     }
 
-    public Tarefa(int id, String tarefa, String date) {
+    public Tarefa(int id, String tarefa, String dataMarcada) {
         this.id = id;
         this.tarefa = tarefa;
-        this.date = date;
+        this.dataMarcada = dataMarcada;
     }
 
     public int getId() {
@@ -36,11 +36,16 @@ public class Tarefa {
         this.tarefa = tarefa;
     }
 
-    public String getDate() {
-        return date;
+    public String getDataMarcada() {
+        return dataMarcada;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setDataMarcada(String dataMarcada) {
+        this.dataMarcada = dataMarcada;
+    }
+
+    @Override
+    public String toString() {
+        return tarefa + " - " + dataMarcada;
     }
 }

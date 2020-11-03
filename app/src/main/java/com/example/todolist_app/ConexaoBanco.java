@@ -8,7 +8,6 @@ public class ConexaoBanco extends SQLiteOpenHelper {
 
     private static final String NOME_DO_BANCO = "listaTarefas";
     private static final int VERSAO_DO_BANCO = 1;
-    private static final String NOME_DA_TABELA = "tarefas";
 
     public ConexaoBanco(Context contexto) {
         super(contexto, NOME_DO_BANCO, null, VERSAO_DO_BANCO);  //parâmetros(context object, nome_do_banco_sqlite, factory, versão_do_banco)
@@ -18,15 +17,15 @@ public class ConexaoBanco extends SQLiteOpenHelper {
     //sobrescritas dos métodos específicos (de criar banco e de alterar banco) da superclasse SQLiteOpenHelper
     @Override
     public void onCreate(SQLiteDatabase bd) {
-        bd.execSQL( "CREATE TABLE " + NOME_DA_TABELA + " ( " +
+        bd.execSQL(" CREATE TABLE IF NOT EXISTS tarefas (" +
                 " id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT , " +
                 " tarefa TEXT NOT NULL , " +
-                " date TEXT )" );
+                " dataMarcada TEXT ) " );
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase bd, int i, int i1) {
-        bd.execSQL( "DROP TABLE IF EXISTS " + NOME_DA_TABELA );
+        bd.execSQL( "DROP TABLE IF EXISTS tarefas" );
         onCreate(bd);
     }
 }

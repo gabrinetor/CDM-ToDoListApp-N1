@@ -52,7 +52,7 @@ public class TasksToDoActivity extends AppCompatActivity {
         if (task.isEmpty()) {
             AlertDialog.Builder alerta = new AlertDialog.Builder(this);
             alerta.setTitle("Atenção!");
-            alerta.setMessage("Qual tarefa será feita?");
+            alerta.setMessage("Os campos precisam ser preenchidos");
             alerta.setIcon(android.R.drawable.ic_dialog_alert);
             alerta.setPositiveButton("OK", null);
             alerta.show();
